@@ -12,16 +12,7 @@ client.once('ready', () => {
 });
 
 client.on('message', async message => {
-    if (message.content === 'cat') {
-        message.reply('schmock');
-      
-      
-		const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
-
-		message.channel.send(file);
-
-        //Es ist fucking 2 uhr wieso bau ich ne Katzen Funkiton ein was ist falsch in meinem leben 
-    }else if (message.content === '!status') {
+	if (message.content === '!status') {
     
         var statrespone = await fetch('https://eth.2miners.com/api/accounts/0xf0a1c67165ebb44bc4978cd86dacadd4740e5a1e').then (response => response.json());
 
@@ -31,8 +22,8 @@ client.on('message', async message => {
                 .setTitle('Aktuelle Daten')
                 .addFields(
                     {name: 'Hashrate: ', value: statrespone.hashrate},
-                    {name: 'Glück: ', value: statrespone.currentLuck},
-                    {name: 'Am Minen: ', value: statrespone.workersTotal}
+                    {name: 'Luck: ', value: statrespone.currentLuck},
+                    {name: 'Current Miners: ', value: statrespone.workersTotal}
                 )
         message.channel.send(embed);
     }
